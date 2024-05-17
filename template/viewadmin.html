@@ -1,0 +1,26 @@
+{% extends 'admin11/admin_base.html' %}
+
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">SL NO.</th>
+      <th scope="col">Subject</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in data %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{i.subject}}</td>
+      <td>
+        <form action="{% url 'delete' i.id %}" method="POST">
+              {% csrf_token %}
+        <button type="submit" class="btn btn-success">Delete</button>
+      </form>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

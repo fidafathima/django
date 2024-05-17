@@ -1,0 +1,42 @@
+{% extends 'admin11/admin_base.html' %}
+
+{% block content %}
+<table class="table" xmlns="http://www.w3.org/1999/html">
+  <thead>
+    <tr>
+      <th scope="col">SL NO.</th>
+      <th scope="col">User</th>
+      <th scope="col">Date</th>
+      <th scope="col">Time</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in data %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{i.user.name}}</td>
+      <td>{{i.schedule.date}}</td>
+      <td>{{i.schedule.start_time}} TO {{i.schedule.end_time}}</td>
+      <td>
+        {% if i.status == 0 %}
+             <form action="{% url 'accept' i.id %}" method="POST">
+               {% csrf_token %}
+        <a href="{% url 'accept' i.id %}" type="submit" class="btn btn-success">Accept</a>
+      </form>
+        <br>
+        <form action="{% url 'reject' i.id %}" method="POST">
+              {% csrf_token %}
+        <a href="{% url 'reject' i.id %}" type="submit" class="btn btn-success">Reject</a>
+      </form>
+        {% elif i.status == 1 %}
+           <button type="submit" class="btn btn-success">Accepted</button>
+        {% elif i.status == 2 %}
+        <button type="submit" class="btn btn-success">Rejected</button>
+        {% endif %}
+      </td>
+    </tr>
+
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

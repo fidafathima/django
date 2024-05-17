@@ -1,0 +1,41 @@
+{% extends 'admin11/admin_base.html' %}
+
+{% block content %}
+
+<!--<div class="card mb-3" style="width: 18rem;">-->
+<!--  <div class="card-body">-->
+<div class="text-success">
+   <table class="table table-striped table-hover">
+   <thead>
+    <tr>
+       <th scope="col">Customer</th>
+      <th scope="col">Work manager</th>
+        <th scope="col">Category</th>
+      <th scope="col">Vehicle.no</th>
+        <th scope="col">Vehicle.name</th>
+      <th scope="col">Vehicle.model</th>
+      <th scope="col">Vehicle.brand</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in form %}
+    <tr>
+       <th>{{i.customer}}</th>
+      <th>{{i.workmanager}}</th>
+      <th>{{i.category}}</th>
+      <th>{{i.vehicle_no}}</th>
+      <th>{{i.vehicle_name}}</th>
+      <th>{{i.vehicle_model}}</th>
+      <th>{{i.vehicle_brand}}</th>
+      <th>{{i.status}}</th>
+      <th> <form action="{% url 'delete_work' i.id %}" method="POST">
+              {% csrf_token %}
+        <button type="submit" class="btn btn-success">Delete</button>
+      </form></th>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'admin11/admin_base.html' %}
+
+{% block content %}
+
+
+{% for i in data %}
+<div class="card mb-3" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">date</h5>
+    <h5 class="card-title">{{i.date}}</h5>
+    <h5 class="card-title">Time</h5>
+    <h6 class="card-title">{{i.start_time}} To {{i.end_time}}</h6>
+      <form action="{% url 'delete_schedule' i.id %}" method="POST">
+              {% csrf_token %}
+    <button type="submit"class="btn btn-info">Delete</button>
+      </form>
+  </div>
+  {% endfor %}
+{% endblock %}
+</div>

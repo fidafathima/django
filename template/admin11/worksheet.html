@@ -1,0 +1,17 @@
+{% extends 'admin11/admin_base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container-fluid">
+<!--    <h1>name</h1>-->
+    <div class="card">
+        <form method="post">
+            {% csrf_token %}
+            <div class="container">
+                {{form|crispy}}
+                <button type="submit"class="btn btn-info"> submit </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

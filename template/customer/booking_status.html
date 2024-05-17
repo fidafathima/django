@@ -1,0 +1,31 @@
+{% extends 'customer/customer_base.html' %}
+
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Schedule</th>
+        <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in data %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{i.schedule.date}},{{i.schedule.start_time}}</td>
+      <td>
+          {% if i.status == 0 %}
+          Pending
+          {% elif i.status == 1 %}
+          Accepted
+          {% elif i.status == 2 %}
+          Rejected
+          {% endif %}
+      </td>
+
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'admin11/admin_base.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container-fluid">
+    <div class="card">
+        <form method="post">
+            {% csrf_token %}
+            <div class="container">
+                <div class="form-group">
+                <label class="form-control-label">user</label>
+                <input required class="form-control" readonly value="{{form.user}}">
+            </div>
+          <div class="form-group">
+                <label class="form-control-label">Feedback</label>
+                <input required class="form-control" readonly value="{{form.feedback}}">
+          </div>
+              <div class="container">
+                <div class="form-group">
+                <label class="form-control-label">user</label>
+                <input required class="form-control" readonly value="{{form.user}}">
+            </div>
+                <div class="container">
+                <div class="form-group">
+                <label class="form-control-label">user</label>
+                <input required class="form-control" readonly value="{{form.user}}">
+            </div>
+                  <div class="container">
+                <div class="form-group">
+                <label class="form-control-label">user</label>
+                <input required class="form-control" readonly value="{{form.user}}">
+            </div>
+                    <div class="container">
+                <div class="form-group">
+                <label class="form-control-label">user</label>
+                <input required class="form-control" readonly value="{{form.user}}">
+            </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+

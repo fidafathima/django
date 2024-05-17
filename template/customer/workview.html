@@ -1,0 +1,36 @@
+{% extends 'customer/customer_base.html' %}
+
+{% block content %}
+
+{% for i in work %}
+<!--<div class="card mb-3" style="width: 18rem;">-->
+  <div class="card-body">
+   <table class="table">
+   <thead>
+    <tr>
+      <th scope="col">category</th>
+      <th scope="col">vehicle.no</th>
+        <th scope="col">vehicle.name</th>
+      <th scope="col">vehicle.model</th>
+      <th scope="col">vehicle.brand</th>
+      <td scope="col">Status</td>
+      <td scope="col"></td>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in work %}
+    <tr>
+      <th>{{i.category}}</th>
+      <th>{{i.vehicle_no}}</th>
+      <th>{{i.vehicle_name}}</th>
+      <th>{{i.vehicle_model}}</th>
+      <th>{{i.vehicle_brand}}</th>
+      <th>{{i.status}}</th>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+  </div>
+
+{% endfor %}
+{% endblock %}

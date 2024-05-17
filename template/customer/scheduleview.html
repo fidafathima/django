@@ -1,0 +1,20 @@
+{% extends 'customer/customer_base.html' %}
+
+{% block content %}
+
+
+{% for i in data %}
+<div class="card mb-3" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">date</h5>
+    <h5 class="card-title">{{i.date}}</h5>
+    <h5 class="card-title">Time</h5>
+    <h6 class="card-title">{{i.start_time}} To {{i.end_time}}</h6>
+    <form action="{% url 'appointment' i.id %}" method="post">
+            {% csrf_token %}
+    <button type="submit" class="btn btn-info">Book Appointment </button>
+    </form>
+  </div>
+  {% endfor %}
+{% endblock %}
+</div>

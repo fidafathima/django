@@ -1,0 +1,38 @@
+{% extends 'workmanager/workmanager_base.html' %}
+
+{% block content %}
+
+{% for i in form %}
+<!--<div class="card mb-3" style="width: 50rem;">-->
+  <div class="card-body" >
+   <table class="table">
+   <thead>
+    <tr>
+      <th scope="col">Customer</th>
+      <th scope="col">category</th>
+      <th scope="col">vehicle.no</th>
+        <th scope="col">vehicle.name</th>
+      <th scope="col">vehicle.model</th>
+      <th scope="col">vehicle.brand</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in form %}
+    <tr>
+      <th>{{i.customer}}</th>
+      <th>{{i.category}}</th>
+      <th>{{i.vehicle_no}}</th>
+      <th>{{i.vehicle_name}}</th>
+      <th>{{i.vehicle_model}}</th>
+      <th>{{i.vehicle_brand}}</th>
+      <th>
+           <a href="{% url 'update_work' i.id %}" class="btn btn-warning">Update</a>
+      </th>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+  </div>
+
+{% endfor %}
+{% endblock %}

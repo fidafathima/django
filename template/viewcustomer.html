@@ -1,0 +1,20 @@
+{% extends 'customer/customer_base.html' %}
+
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th>Notification</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in data %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{i.subject}}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
